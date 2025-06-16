@@ -6,12 +6,13 @@
     <title>مساعد استراتيجية التحول الرقمي</title>
     <link rel="stylesheet" href="index.css">
     <script type="importmap">
-      {
-        "imports": {
-          "@google/genai": "https://esm.sh/@google/genai@^0.12.0"
-        }
-      }
-    </script>
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^0.12.0",
+    "marked": "https://esm.sh/marked@^15.0.12"
+  }
+}
+</script>
 <link rel="stylesheet" href="/index.css">
 </head>
 <body>
@@ -19,10 +20,17 @@
         <div id="chat-messages">
             <!-- Messages will be appended here -->
         </div>
+        <div id="error-message" style="display: none;"></div>
+        <div id="suggested-questions-container" style="display: none;">
+            <p id="suggested-questions-title">أسئلة مقترحة:</p>
+            <div id="suggested-questions-area">
+                <!-- Suggested question buttons will be appended here -->
+            </div>
+        </div>
         <div id="loading-indicator" style="display: none;">جاري البحث...</div>
         <div id="chat-input-area">
             <input type="text" id="message-input" placeholder="اكتب سؤالك هنا...">
-            <button id="send-button">إرسال</button>
+            <button id="send-button" aria-label="إرسال الرسالة">إرسال</button>
         </div>
     </div>
     <script type="module" src="index.tsx"></script>

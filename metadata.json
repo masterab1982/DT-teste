@@ -1,6 +1,6 @@
-
 {
   "name": "DT-Chatbot",
   "description": "Chatbot for SRCA Digital Transformation Strategy",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "prompt": ""
 }
