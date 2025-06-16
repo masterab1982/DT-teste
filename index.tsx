@@ -1,3 +1,4 @@
+
 import {
   GoogleGenAI,
   HarmCategory,
@@ -818,7 +819,7 @@ async function transformMetadataToKnowledgeBase(metadataObject: any): Promise<Kn
 
 async function loadKnowledgeBase(): Promise<void> {
   try {
-    const text = await fetchFileContent('./data_dt_v03.json'); // CRITICAL FIX: Load the correct data file
+    const text = await fetchFileContent('/data_dt_v03.json'); // Use absolute path from root
     if (!text.trim()) {
         knowledgeBase = [];
         return;
