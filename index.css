@@ -1,0 +1,120 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5; /* A slightly softer background */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #333;
+}
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Optional: for a more modern look if not full height */
+    overflow: hidden; /* Ensures chat-input-area doesn't cause overflow issues */
+}
+
+#chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between messages */
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 75%;
+    line-height: 1.5;
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+.user-message {
+    background-color: #007bff; /* Primary color for user */
+    color: white;
+    align-self: flex-start; /* For RTL, user messages on the left */
+    border-bottom-left-radius: 4px; /* "Tail" effect */
+}
+
+.bot-message {
+    background-color: #e9ecef; /* Light grey for bot */
+    color: #333;
+    align-self: flex-end; /* For RTL, bot messages on the right */
+    border-bottom-right-radius: 4px; /* "Tail" effect */
+}
+
+#loading-indicator {
+    padding: 10px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+#chat-input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: #f8f9fa; /* Slightly different background for input area */
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px; /* For RTL, this is margin-left */
+    font-size: 1em;
+}
+html[dir="rtl"] #message-input {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+
+#message-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+#send-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+#send-button:hover {
+    background-color: #0056b3;
+}
+
+#send-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #chat-container {
+        border-radius: 0; /* Full screen on mobile */
+    }
+    .message {
+        max-width: 85%;
+    }
+    #message-input, #send-button {
+        font-size: 0.9em;
+    }
+}
